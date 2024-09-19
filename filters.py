@@ -44,8 +44,7 @@ def check_password():
 
 if not check_password():
     st.stop()
-
-
+    
 #parent_dir = os.path.dirname(os.path.abspath(__file__))
 #logo_path = os.path.join(parent_dir, "mm.svg")
 
@@ -69,14 +68,10 @@ with st.form(key='my_form'):
     data["Folio"].unique())
    submit_button = st.form_submit_button(label='Buscar', use_container_width=True)
    
-if not(options):
-   filtered = data
-else:
-   filtered = data[data['Folio'].isin(options)]
+filtered = data[data['Folio'].isin(options)]
 
 gb = GridOptionsBuilder.from_dataframe(filtered,
                                         editable=False)
-
 cell_renderer =  JsCode("""
                         function(params) {return `<a href=${params.value} target="_blank">${params.value}</a>`}
                         """)
