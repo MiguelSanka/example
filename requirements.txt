@@ -1,0 +1,3 @@
+st_gsheets_connection==0.1.0
+streamlit==1.38.0
+streamlit-aggrid==1.0.5
